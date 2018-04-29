@@ -9,6 +9,10 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+
+    3.times do
+      @project.technologies.build
+    end
   end
 
   def show
@@ -55,6 +59,6 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:title, :subtitle, :body)
+      params.require(:project).permit(:title, :subtitle, :body, technologies_attributes: [:name])
     end
 end
