@@ -7,6 +7,10 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
   def create
     @project = Project.new(project_params)
 
@@ -15,6 +19,18 @@ class ProjectsController < ApplicationController
         format.html { redirect_to projects_path, notice: "Project was successfully created." }
       else
         format.html { render :new }
+      end
+    end
+  end
+
+  def update
+    @project = Project.find(params[:id])
+
+    respond_to do |format|
+      if @project.update(project_params)
+        format.html { redirect_to projects_path, notice: 'Blog was successfully updated.' }
+      else
+        format.html { render :edit }
       end
     end
   end
