@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  has_many :technologies
+
   include Placeholder
 
   after_initialize :set_defaults

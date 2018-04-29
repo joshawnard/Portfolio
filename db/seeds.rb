@@ -52,3 +52,12 @@ Project.create!(
   main_image: "http://via.placeholder.com/600x400",
   thumb_image: "http://via.placeholder.com/350x200",
 )
+
+3.times do |technology|
+  Project.last.technologies.create!(
+    name: "Technology #{technology}",
+    project_id: Project.last.id,
+  )
+end
+
+puts "3 technologies created"
