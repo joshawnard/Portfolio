@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.ruby_on_rails_projects
+    @projects = Project.all
   end
 
   def angular
