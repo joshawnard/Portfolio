@@ -1,0 +1,10 @@
+<h1>Angualr Projects</h1>
+
+<% @angular_projects.each do |project| %>
+  <h2><%= link_to project.title, project_show_path(project) %></h2>
+  <h3><%= project.subtitle %></h3>
+  <p><%= project.body %></p>
+  <%= image_tag project.thumb_image unless project.thumb_image.nil? %>
+  <%= link_to "Edit", edit_project_path(project) %>
+  <%= link_to 'Delete', project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
