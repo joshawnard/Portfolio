@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    @page_title = "Projects | Joshua Ard Portfolio"
   end
 
   def angular
